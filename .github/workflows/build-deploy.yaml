@@ -1,0 +1,19 @@
+name: Docker Build and Deploy
+
+on:
+  push:
+    branches: 
+      - main
+
+env:
+  DEPLOYMENT_NAME: supplier-order
+
+jobs:
+
+  setup-build-publish:
+
+    name: Setup build and setup-build-publish
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: echo "Build started "
