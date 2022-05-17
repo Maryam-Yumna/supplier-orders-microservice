@@ -39,4 +39,11 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{env.DEPLOYMENT_NAME}}:${{ github.sha }}
+  
+  deploy:
+    needs: setup-build-publish
+    name: deploy to GCP
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deplyment started"
 
