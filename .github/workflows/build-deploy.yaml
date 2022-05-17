@@ -7,6 +7,9 @@ on:
 
 env:
   DEPLOYMENT_NAME: supplier-order
+  PROJECT_ID: ${{ secrets.GKA_PROJECT }}
+  GKE_CLUSTER: ctse-assignment3
+  GKE_ZONE: us-central1-c
 
 jobs:
 
@@ -46,4 +49,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deplyment started"
+
+    #Checkout application to deploy
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      #Authencate GCP
+      - id: "auth"
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
 
