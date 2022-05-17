@@ -21,7 +21,7 @@ spec:
       - name: ctse-supplier-orders
         image: maryamyumna/supplier-order:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
         resources:
           requests:
             cpu: 100m
